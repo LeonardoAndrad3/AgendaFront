@@ -1,0 +1,17 @@
+import styled from "styled-components";
+
+
+export const Container = styled.div`
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+    height: 100vh;
+    width: 100vw;
+
+
+`;
