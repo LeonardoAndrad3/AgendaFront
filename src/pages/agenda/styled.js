@@ -15,3 +15,18 @@ export const Container = styled.div`
 
 
 `;
+
+
+export const Title = styled.h1`
+
+
+    color: var(--color-h1-agenda);
+
+
+`
+
+export const SubTitle = styled.h1`
+
+    color: #9E9E9E;
+
+`

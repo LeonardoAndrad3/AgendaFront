@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+export const ButtonCustom = styled.button`
 
     width: ${(props) => props.w};
     height: ${(props) => props.h};
