@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
 :root{
     --tag-mariana: #6F50AF;
     --tag-ivana: #AF1717;
+    font-family: "Comfortaa", sans-serif;
 }

@@ -1,15 +1,7 @@
-.container{
-
-
-}
-
-
 .swiper{
     margin: auto;
     width: 90%;
     height: 90%;
-
-    border: solid 1px rgb(9, 255, 0);
 }
 
 
@@ -20,5 +12,5 @@
     --swiper-navigation-top-offset: 97%;
     --swiper-navigation-sides-offset: 10%;
     --swiper-navigation-color: var(--swiper-theme-color);
-
 }
+
