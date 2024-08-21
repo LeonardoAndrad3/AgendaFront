@@ -30,7 +30,7 @@ export default function SwiperAgenda(){
                           
                           <SwiperSlide>
                     <ST.SwiperContainer>       
-                        <ST.Service__tag employee="mariana"/>
+                        <ST.ServiceTag employee="mariana"/>
                         <ST.NameClient>Eduarda</ST.NameClient>
                         <ST.DateService>
                                 25/02
@@ -44,7 +44,7 @@ export default function SwiperAgenda(){
                            
                 <SwiperSlide>
                     <ST.SwiperContainer>       
-                        <ST.Service__tag employee="mariana"/>
+                        <ST.ServiceTag employee="mariana"/>
                         <ST.NameClient>Eduarda</ST.NameClient>
                         <ST.DateService>
                                 25/02
@@ -58,7 +58,7 @@ export default function SwiperAgenda(){
                            
                 <SwiperSlide>
                     <ST.SwiperContainer>       
-                        <ST.Service__tag employee="mariana"/>
+                        <ST.ServiceTag employee="mariana"/>
                         <ST.NameClient>Eduarda</ST.NameClient>
                         <ST.DateService>
                                 25/02
@@ -72,7 +72,7 @@ export default function SwiperAgenda(){
                            
                 <SwiperSlide>
                     <ST.SwiperContainer>       
-                        <ST.Service__tag employee="mariana"/>
+                        <ST.ServiceTag employee="mariana"/>
                         <ST.NameClient>Eduarda</ST.NameClient>
                         <ST.DateService>
                                 25/02
@@ -86,7 +86,7 @@ export default function SwiperAgenda(){
                            
                 <SwiperSlide>
                     <ST.SwiperContainer>       
-                        <ST.Service__tag employee="mariana"/>
+                        <ST.ServiceTag employee="mariana"/>
                         <ST.NameClient>Eduarda</ST.NameClient>
                         <ST.DateService>
                                 25/02
@@ -101,7 +101,7 @@ export default function SwiperAgenda(){
                 
                 <SwiperSlide>
                     <ST.SwiperContainer>       
-                        <ST.Service__tag employee="mariana"/>
+                        <ST.ServiceTag employee="mariana"/>
                         <ST.NameClient>Eduarda</ST.NameClient>
                         <ST.DateService>
                                 25/02
@@ -110,11 +110,7 @@ export default function SwiperAgenda(){
                             </ST.TimeHour>
                         </ST.DateService>
                     </ST.SwiperContainer>             
-                </SwiperSlide>
-
-                
-               
-
+                </SwiperSlide>                
             </Swiper>
         </ST.Container>
     );
