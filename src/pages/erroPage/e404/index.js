@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "../styled";
 
-export default function errorPage(){
+export default function ErrorPage(){
 
     return(
         <>

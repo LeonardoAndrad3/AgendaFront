@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 
 import "./index.css"
 
@@ -12,7 +12,35 @@ import 'swiper/css/scrollbar';
 import "swiper/css/grid";
 import * as ST from "./styled";
 
+import dataServices from "services/request/services"
+import { ServiceList } from "domain/services/ServiceList";
+
 export default function SwiperAgenda(){
+
+    const [services, setServices] = useState([{}]);
+
+    useEffect(()=>{
+       dataServices
+       .then(({data}) => {
+         setServices(data.content)
+       })
+    },[])
+
+    const swiperSlide = (service = new ServiceList()) => (
+            <SwiperSlide key={service.id}>
+                <ST.SwiperContainer>       
+                    <ST.ServiceTag key={service.Employee.id} $employee={service.Employee}/>
+                    <ST.NameClient key={service.Client.id}>{service.Client}</ST.NameClient>
+                    <ST.DateService>
+                        {service.date}
+                        <ST.TimeHour>
+                        {service.date}
+                        </ST.TimeHour>
+                    </ST.DateService>
+                </ST.SwiperContainer>             
+            </SwiperSlide>
+    )
+
     return(
         <ST.Container className="container">
             <Swiper
@@ -27,90 +55,13 @@ export default function SwiperAgenda(){
                 navigation
                 pagination={{clickable: true}}
             >
-                          
-                          <SwiperSlide>
-                    <ST.SwiperContainer>       
-                        <ST.ServiceTag employee="mariana"/>
-                        <ST.NameClient>Eduarda</ST.NameClient>
-                        <ST.DateService>
-                                25/02
-                            <ST.TimeHour>
-                                09:20 - 10:30
-                            </ST.TimeHour>
-                        </ST.DateService>
-                    </ST.SwiperContainer>             
-                </SwiperSlide>
 
-                           
-                <SwiperSlide>
-                    <ST.SwiperContainer>       
-                        <ST.ServiceTag employee="mariana"/>
-                        <ST.NameClient>Eduarda</ST.NameClient>
-                        <ST.DateService>
-                                25/02
-                            <ST.TimeHour>
-                                09:20 - 10:30
-                            </ST.TimeHour>
-                        </ST.DateService>
-                    </ST.SwiperContainer>             
-                </SwiperSlide>
+                {services.map((data, i) => {
+                    
+                        swiperSlide(data)
 
-                           
-                <SwiperSlide>
-                    <ST.SwiperContainer>       
-                        <ST.ServiceTag employee="mariana"/>
-                        <ST.NameClient>Eduarda</ST.NameClient>
-                        <ST.DateService>
-                                25/02
-                            <ST.TimeHour>
-                                09:20 - 10:30
-                            </ST.TimeHour>
-                        </ST.DateService>
-                    </ST.SwiperContainer>             
-                </SwiperSlide>
+                })}
 
-                           
-                <SwiperSlide>
-                    <ST.SwiperContainer>       
-                        <ST.ServiceTag employee="mariana"/>
-                        <ST.NameClient>Eduarda</ST.NameClient>
-                        <ST.DateService>
-                                25/02
-                            <ST.TimeHour>
-                                09:20 - 10:30
-                            </ST.TimeHour>
-                        </ST.DateService>
-                    </ST.SwiperContainer>             
-                </SwiperSlide>
-
-                           
-                <SwiperSlide>
-                    <ST.SwiperContainer>       
-                        <ST.ServiceTag employee="mariana"/>
-                        <ST.NameClient>Eduarda</ST.NameClient>
-                        <ST.DateService>
-                                25/02
-                            <ST.TimeHour>
-                                09:20 - 10:30
-                            </ST.TimeHour>
-                        </ST.DateService>
-                    </ST.SwiperContainer>             
-                </SwiperSlide>
-
-                
-                
-                <SwiperSlide>
-                    <ST.SwiperContainer>       
-                        <ST.ServiceTag employee="mariana"/>
-                        <ST.NameClient>Eduarda</ST.NameClient>
-                        <ST.DateService>
-                                25/02
-                            <ST.TimeHour>
-                                09:20 - 10:30
-                            </ST.TimeHour>
-                        </ST.DateService>
-                    </ST.SwiperContainer>             
-                </SwiperSlide>                
             </Swiper>
         </ST.Container>
     );

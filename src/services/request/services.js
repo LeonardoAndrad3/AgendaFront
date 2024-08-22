@@ -1,6 +1,6 @@
 import axios from "config/axios";
 
-const getServices = async() =>{
+const GetServices = async() =>{
     return await axios.get("/services")
         .then((response)=>{
             return response
@@ -10,4 +10,4 @@ const getServices = async() =>{
         })   
 }
 
-export default getServices();
+export default GetServices();

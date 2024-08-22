@@ -4,17 +4,12 @@ import SwiperAgenda from "./swiperAgenda";
 import Button from "components/buttonBack";
 import { Link } from "react-router-dom";
 
-import dataServices from "services/request/services"
+import { ServiceList } from "domain/services/ServiceList.js";
 
-export default function agenda(){
 
-    const [services,setServices] = useState();
+export default function Agenda(){
 
-    useEffect(()=>{
-       dataServices.then((data)=>{
-         setServices(data)
-       })
-    },[])
+
 
     return (
         <Container>
@@ -22,7 +17,7 @@ export default function agenda(){
             <Nagivation>
     
                 <Link to="/">
-                    <Button colorB={"black"} colorT={"white"} w={200} h={300} value={"Return"}/>
+                    <Button color_b={"black"} color_t={"white"} w={200} h={300} value={"Return"}/>
                 </Link>
                 <Link>
                     <Button colorB={"transparent"} colorT={"black"} w={200} h={300} value={"Other model"}/>

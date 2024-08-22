@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-export default function app(){
+export default function App(){
     return(
         <>
 

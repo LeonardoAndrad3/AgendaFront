@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-    display: flex;
+    display: inline-block;
     width: 98%;
-    height: 98%;
-
+    height: 69%;
+    border: solid 1px red;
 `
 
 export const SwiperContainer = styled.div`
@@ -25,7 +25,7 @@ export const SwiperContainer = styled.div`
 `
 
 export const ServiceTag = styled.div`
-    background-color: var(--tag-${(props) => props.employee});
+    background-color: var(--tag-${(props) => props.$employee});
     border-radius: 50%;
     display: inline-block;
     width: 40px;

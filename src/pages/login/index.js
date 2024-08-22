@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "./styled";
 
-export default function login(){
+export default function Login(){
     return(
         <Container>
             <p>Oi</p>
