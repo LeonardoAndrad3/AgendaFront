@@ -20,12 +20,10 @@ export const SwiperContainer = styled.div`
     align-items: center;
     padding: .5em .5em;
     box-sizing: border-box;
-
-
 `
 
 export const ServiceTag = styled.div`
-    background-color: var(--tag-${(props) => props.$employee});
+    background-color: var(--tag-${(props) => props.$employee.toLowerCase()});
     border-radius: 50%;
     display: inline-block;
     width: 40px;
@@ -36,19 +34,15 @@ export const ServiceTag = styled.div`
 export const NameClient = styled.p`
     width: auto;
     height: auto;
-    
     grid-area: 2/2/3/3; 
 `
 
 export const DateService = styled.div`
-
     display: grid;
     grid-area: 2/3/3/4; 
-
 `
 
 export const TimeHour = styled.span`
-
 
 
 `

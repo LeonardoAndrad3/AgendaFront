@@ -9,8 +9,6 @@ import { ServiceList } from "domain/services/ServiceList.js";
 
 export default function Agenda(){
 
-
-
     return (
         <Container>
 
