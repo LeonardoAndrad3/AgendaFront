@@ -22,7 +22,10 @@ export default function SwiperAgenda(){
     useEffect(()=>{
        dataServices
        .then(({data}) => {
-         setServices(data.content)
+        setServices(data.content)
+       })
+       .catch((err)=>{
+        console.log(err)
        })
     },[]) 
 
@@ -68,10 +71,10 @@ export default function SwiperAgenda(){
                             />
                         </SwiperSlide>
                     )
-                })}
-                </Swiper>
+                })} 
 
-                : 
+                </Swiper>
+                :
                 <div>
                     <p>Without services</p>
                 </div>
