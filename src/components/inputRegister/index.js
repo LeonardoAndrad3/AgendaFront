@@ -1,11 +1,17 @@
 import React from "react";
 import { Container } from "./styled";
-import { Outlet } from "react-router-dom";
 
-export default function Login(){
+export default function InputR(){
+
     return(
         <Container>
-            <Outlet/>
+
+            
+
+
+
         </Container>
     )
+
+
 }

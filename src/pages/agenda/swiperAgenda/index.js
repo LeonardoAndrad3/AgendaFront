@@ -45,7 +45,6 @@ export default function SwiperAgenda(){
             )
     } 
 
-
     
     return(
         <ST.Container className="container">

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Title, SubTitle, Nagivation, EmployeeList } from "./styled.js";
 import SwiperAgenda from "./swiperAgenda";
 import Button from "components/buttonBack";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 import { ServiceList } from "domain/services/ServiceList.js";
 
@@ -31,10 +31,13 @@ export default function Agenda(){
                     </EmployeeList>
                 </div>
             
-            </Nagivation>
+            </Nagivation>   
+
+            <Link to={"/agenda/services"}> t</Link>
+
+            <Outlet/>
 
 
-            <SwiperAgenda/> 
         </Container>
     );
 }

@@ -17,6 +17,11 @@ import{
     Route,
     Link
 } from "react-router-dom"
+import Register from 'pages/agenda/registerService';
+import SwiperAgenda from 'pages/agenda/swiperAgenda';
+import ForgotPass from 'pages/login/forgotPass';
+import ReceiveCode from 'pages/login/receiveCode';
+import Form from 'pages/login/form';
 
 const router = createBrowserRouter([
     {
@@ -27,10 +32,37 @@ const router = createBrowserRouter([
     {
         path:"login",
         element: <Login />,
+        children:[
+            {
+                path:"form",
+                element: <Form />
+            },
+            {
+                path: "register",
+                element: <Register />
+            },
+            {
+                path: "forgot",
+                element: <ForgotPass/>,
+                children:[
+                    {
+                        path: "code",
+                        element: <ReceiveCode/>
+                    },
+                ]
+            },
+        ]
     },
+  
     {
         path:"agenda",
-        element: <Agenda />
+        element: <Agenda />,
+        children:[
+            {
+                path: "services",
+                element: <SwiperAgenda />
+            },
+        ]
     }
 
 ])

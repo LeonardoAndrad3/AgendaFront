@@ -21,7 +21,7 @@ export const SwiperContainer = styled.div`
     padding: .5em .5em;
     box-sizing: border-box;
 `
-
+ 
 export const ServiceTag = styled.div`
     background-color: var(--tag-${(props) => props.$employee.toLowerCase()});
     border-radius: 50%;
