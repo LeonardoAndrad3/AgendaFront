@@ -1,7 +1,9 @@
 import axios from "config/axios";
 
-const getServices = async() =>{
-    return await axios.get("/services")
+//Create class for API auth ;
+
+const login = async(data) =>{
+    return await axios.post("/services")
         .then((response)=>{
             return response
         }) 
@@ -10,4 +12,4 @@ const getServices = async() =>{
         })   
 }
 
-export default getServices();
+export default login();
