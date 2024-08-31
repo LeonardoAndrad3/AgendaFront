@@ -21,7 +21,8 @@ import Register from 'pages/agenda/registerService';
 import SwiperAgenda from 'pages/agenda/swiperAgenda';
 import ForgotPass from 'pages/login/forgotPass';
 import ReceiveCode from 'pages/login/receiveCode';
-import Form from 'pages/login/form';
+import Form from 'pages/login/formSignIn';
+import RegisterService from 'pages/registerService';
 
 const router = createBrowserRouter([
     {
@@ -53,7 +54,6 @@ const router = createBrowserRouter([
             },
         ]
     },
-  
     {
         path:"agenda",
         element: <Agenda />,
@@ -63,6 +63,11 @@ const router = createBrowserRouter([
                 element: <SwiperAgenda />
             },
         ]
+    },
+    {
+
+        path:"register",
+        element: <RegisterService/>,
     }
 
 ])

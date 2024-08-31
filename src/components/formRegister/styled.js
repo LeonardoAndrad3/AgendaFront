@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
+
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+
 `
 
-const FormSignin = styled.form`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,8 +24,12 @@ const FormSignin = styled.form`
         margin-left: .5em;
         border-bottom: solid 1px black;
     }
+`
 
+const DataList = styled.datalist`
+
+    
 
 `
 
-export{Container, FormSignin}
+export{Container, Form, DataList}
