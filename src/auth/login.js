@@ -3,7 +3,13 @@ import axios from "config/axios";
 //Create class for API auth ;
 
 const login = async(data) =>{
-    return await axios.post("/services")
+    return await axios.post({
+        "idEmployee":"",
+        "idClient":"",
+        "date":,
+        "start":,
+        "end":
+        })
         .then((response)=>{
             return response
         }) 

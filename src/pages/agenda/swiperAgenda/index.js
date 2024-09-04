@@ -12,15 +12,17 @@ import 'swiper/css/scrollbar';
 import "swiper/css/grid";
 import * as ST from "./styled";
 
-import dataServices from "services/request/services"
+import dataServices from "services/requestServices/services"
 import { ServiceList } from "domain/services/ServiceList";
 
 export default function SwiperAgenda(){
 
     const [services, setServices] = useState([]);
 
+
+    //Navigation swiper whem "on" is changer pageble url
     useEffect(()=>{
-       dataServices
+       dataServices(0)
        .then(({data}) => {
         setServices(data.content)
        })

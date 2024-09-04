@@ -1,8 +1,9 @@
 import axios from "config/axios";
 
-const getServices = async() =>{
-    return await axios.get("/services")
+async function getServices(n){
+    return await axios.get(`/services?page=${n}`)
         .then((response)=>{
+            console.log(response.data)
             return response
         }) 
         .catch((err) =>{
@@ -10,4 +11,4 @@ const getServices = async() =>{
         })   
 }
 
-export default getServices();
+export default getServices;
