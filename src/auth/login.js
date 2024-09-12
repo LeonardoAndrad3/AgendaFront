@@ -2,20 +2,30 @@ import axios from "config/axios";
 
 //Create class for API auth ;
 
-const login = async(data) =>{
-    return await axios.post({
-        "idEmployee":"",
-        "idClient":"",
-        "date":,
-        "start":,
-        "end":
-        })
+async function login(data){
+
+        await axios.post("/login", data, {
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    })
         .then((response)=>{
-            return response
+            console.log("foi")
+            return new Promise((resolve) =>{
+                setTimeout(()=>{
+                    resolve("test")
+                }, 300)
+            })
         }) 
         .catch((err) =>{
-            console.log("error")
-        })   
+            console.log(err)
+            return new Promise((resolve, reject) =>{
+                setTimeout(()=>{
+                    reject("não foi")
+                }, 300)
+            })
+        })
+ 
 }
 
-export default login();
+export {login};

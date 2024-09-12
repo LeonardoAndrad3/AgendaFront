@@ -1,13 +1,31 @@
 import { Container, Form} from "./styled"
 import { ButtonCustom } from "components/buttonBack/styled"
+import {login} from "auth/login";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function FormSignInComp(){
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        form.get("email");
+        
+        var obj = {}
+        form.forEach((v, k) =>{
+            obj[k] = v;
+        })
 
+        var dataLogin = JSON.stringify(obj);
+
+        login(dataLogin)
+        .then((data) =>{
+            console.log(data)
+        })
+        .catch((err) =>{
+            console.log(err)
+        });
     }
 
     return(
