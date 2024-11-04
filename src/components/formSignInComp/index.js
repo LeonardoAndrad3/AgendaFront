@@ -11,12 +11,8 @@ export default function FormSignInComp(){
     const handleSubmit = (e)=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
+        const obj = Object.fromEntries(form.entries())
         
-        var obj = {}
-        form.forEach((v, k) =>{
-            obj[k] = v;
-        })
-
         var dataLogin = JSON.stringify(obj);
 
         login(dataLogin)

@@ -1,50 +1,71 @@
 import { ButtonCustom } from "components/buttonBack/styled";
+import React from "react";
 import { DataList, Form} from "./styled";
+import { registerService } from "services/requestServices/registerService";
+import dataEmployees from "services/requestServices/employees";
+import { useEffect, useState } from "react";
+import { EmployeeList } from "domain/employee/EmployeeList";
+import { ServiceList } from "domain/services/ServiceList";
 
-export default function formSignUp(props){
+
+export default function FormRegister(){
+
+    const [employee, setEmployee] = useState([])
+    const [services, setServices] = useState()
+
+    const inputServices = document.getElementById("servicesList")
+    const inputEmployee = document.getElementById("employeeList")
+
+    useEffect(()=>{
+        dataEmployees()
+        .then(({data})=>{
+            setEmployee(data)
+        })
+    },[]);
+
+    function getServices(e){
+        var test = (e.target.selectedOptions[0].value)
+        setServices(employee[test])
+    }
+
+    const formElement = document.querySelector("formService")
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        const form = new FormData(e.currentTarget);
+
+        const form = new FormData(e.currentTarget)
+        const data = Object.fromEntries(form.entries())
+
+        registerService(data)
+
+        console.log(data);
     }
 
-    const employee = [
-        "mariana",
-        "ivana"
-    ]
-
-    const services = [
-        "Corte de cabelo",
-        "Luzes"
-    ]
-
     return(
-        <Form>
-            <input list="employee" />
-            <DataList id="employee">
-              {  employee.map((e,i)=>{
-                    return(
-                        <option key={i} value={e}></option>
-                    )
-                })}
-            </DataList>
+        <Form 
+            method="POST"
+            onSubmit={handleSubmit}
+        >
+            <select id="employeeList" onChange={getServices}>
+                <option value="default" defaultChecked>-- Select employee --</option>
+                {employee.map((e,i)=>{
+                        return(
+                            <option key={i} value={i}>{e.name}</option>
+                        )
+                    })}
+            </select>
+            <select>
+                <option values="0" defaultChecked>-- Select service --</option>      
+                        {services !== null ?
+                                <option key={services?.id} value={services?.name}>{services?.work}</option>
+                            :
+                            ""
+                        }  
+            </select>
+            <input type="date" name="date"></input>
+            <input type="time" name="time"></input>
 
-            <input list="services" />
-            <DataList id="services">
-              {  services.map((e,i)=>{
-                    return(
-                        <option key={i} value={e}></option>
-                    )
-                })}
-            </DataList>
-
-            <input type="date"></input>
-            <input type="time"></input>
-            <input type="time"></input>
-            
             <ButtonCustom type="submit">Register</ButtonCustom>
-
-            
         </Form>
     )
 }
