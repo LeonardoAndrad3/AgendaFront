@@ -34,6 +34,8 @@ export default function FormRegister(){
         e.preventDefault();
 
         const form = new FormData(e.currentTarget)
+        form.append("idEmployee", services.id)
+        form.append("idClient", "4")
         const data = Object.fromEntries(form.entries())
 
         registerService(data)
@@ -50,20 +52,21 @@ export default function FormRegister(){
                 <option value="default" defaultChecked>-- Select employee --</option>
                 {employee.map((e,i)=>{
                         return(
-                            <option key={i} value={i}>{e.name}</option>
+                            <option key={i} value={0}>{e.name}</option>
                         )
                     })}
             </select>
-            <select>
+
+            <select name="work">
                 <option values="0" defaultChecked>-- Select service --</option>      
                         {services !== null ?
-                                <option key={services?.id} value={services?.name}>{services?.work}</option>
+                                <option key={services?.id} value={services?.work}>{services?.work}</option>
                             :
-                            ""
+                            "null"
                         }  
             </select>
             <input type="date" name="date"></input>
-            <input type="time" name="time"></input>
+            <input type="time" name="start"></input>
 
             <ButtonCustom type="submit">Register</ButtonCustom>
         </Form>

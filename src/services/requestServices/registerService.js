@@ -11,7 +11,9 @@ async function registerService(data) {
     .then((response) => {
         console.log(response)
     })
-    .catch()
+    .catch((e)=>{
+        console.log(e)
+    })
     
 }
 
