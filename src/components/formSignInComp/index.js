@@ -1,5 +1,5 @@
 import { Container, Form} from "./styled"
-import { ButtonCustom } from "components/buttonBack/styled"
+import Button from "components/buttonBack"
 import {login} from "auth/login";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ export default function FormSignInComp(){
                 <input name="email" type="email" placeholder="@gmai.com"/>
                 <input name="password" type="password" placeholder="....."/>
 
-                <ButtonCustom type="submit">next</ButtonCustom>
+                <Button color_b={"#9E277D"} color_t={"white"} w={"50%"} h={"40px"} r={"8px"} value={"Entrar"} type="submit" valu>next</Button>
             </Form>
         </Container>
     )

@@ -6,6 +6,7 @@ export const ButtonCustom = styled.button`
     height: ${(props) => props.$h};
     background-color: ${(props) => props.$color_b};
     color: ${(props) => props.$color_t};
+    border-radius: ${(props) => props.$r};
 
     border: none;
     padding: .5rem;

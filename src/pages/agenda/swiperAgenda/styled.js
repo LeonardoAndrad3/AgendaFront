@@ -5,7 +5,6 @@ export const Container = styled.div`
     display: inline-block;
     width: 98%;
     height: 69%;
-    border: solid 1px red;
 `
 
 export const SwiperContainer = styled.div`

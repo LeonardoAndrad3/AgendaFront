@@ -20,7 +20,7 @@ export class ServiceList{
     }
 
     getformatDate(){
-        let month = this.date.getMonth();
+        let month = this.date.getMonth()+1;
         let day = this.date.getDate();
         return `${month < 10 ? `0${month}` : month}/${day}`
     }

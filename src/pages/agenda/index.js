@@ -7,6 +7,14 @@ import { Link, Outlet } from "react-router-dom";
 import { ServiceList } from "domain/services/ServiceList.js";
 
 
+
+import {H1} from "styles/Global/styled" 
+
+const hideButton = (e) =>{
+    const button = document.getElementById("buttonViewServices");
+    button.parentNode.removeChild(button);
+}
+
 export default function Agenda(){
 
     return (
@@ -18,10 +26,10 @@ export default function Agenda(){
                     <Button color_b={"black"} color_t={"white"} w={200} h={300} value={"Return"}/>
                 </Link>
                 <Link>
-                    <Button colorB={"transparent"} colorT={"black"} w={200} h={300} value={"Other model"}/>
+                    <Button color_b={"transparent"} color_t={"black"} w={200} h={300} value={"Other model"}/>
                 </Link>
 
-                <Title>Agenda</Title>
+                <H1>Agenda</H1>
 
                 <div>
                     <SubTitle>Filter</SubTitle>
@@ -33,10 +41,7 @@ export default function Agenda(){
             
             </Nagivation>   
 
-            <Link to={"/agenda/services"}> t</Link>
-
-            <Outlet/>
-
+            <SwiperAgenda/>
 
         </Container>
     );
