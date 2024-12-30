@@ -4,13 +4,15 @@ import axios from "config/axios";
 
 async function login(data){
 
+        console.log(data)
+
         await axios.post("/login", data, {
         headers:{
             'Content-Type': 'application/json'
         }
     })
         .then((response)=>{
-            console.log("foi")
+            console.log(response)
             return new Promise((resolve) =>{
                 setTimeout(()=>{
                     resolve("test")

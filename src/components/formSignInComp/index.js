@@ -17,7 +17,8 @@ export default function FormSignInComp(){
 
         login(dataLogin)
         .then((data) =>{
-            console.log(data)
+            console.log("login sucess")
+            navigate("/agenda");
         })
         .catch((err) =>{
             console.log(err)
@@ -33,8 +34,8 @@ export default function FormSignInComp(){
                 onSubmit={handleSubmit}
             >
 
-                <input name="email" type="email" placeholder="@gmai.com"/>
-                <input name="password" type="password" placeholder="....."/>
+                <input name="email" type="email" placeholder="@gmai.com" required/>
+                <input name="password" type="password" placeholder="....." required/>
 
                 <Button color_b={"#9E277D"} color_t={"white"} w={"50%"} h={"40px"} r={"8px"} value={"Entrar"} type="submit" valu>next</Button>
             </Form>

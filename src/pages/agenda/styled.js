@@ -1,18 +1,19 @@
 import styled from "styled-components";
+import "./style.css"
+import { Link } from "react-router-dom";
 
 
 const Container = styled.div`
 
     display: flex;
-    align-items: center;
+    align-items: start;
     text-align: center;
-    justify-content: center;
+    justify-content: end;
     flex-direction: column;
 
     height: 100vh;
     width: 100vw;
 `;
-
 
 const Title = styled.h1`
 
@@ -28,12 +29,19 @@ const SubTitle = styled.h1`
 
 `
 
-const Nagivation = styled.article`
-
-    display: flex;
-
+const Nagivation = styled.section`
+    display: grid;
     height: 100%;
     width: 100%;
+    border: solid 1px red;
+
+    .link{
+        display: flex;
+        top: 10%;
+        left: 2.5%;
+        align-items: start;
+        justify-content: start;
+    }
 
 `
 
@@ -46,9 +54,9 @@ const EmployeeList =  styled.ul`
     span{
 
     }
-
-
 `
+
+
 
 
 export{Container,Title,SubTitle,Nagivation, EmployeeList}

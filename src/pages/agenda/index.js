@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Title, SubTitle, Nagivation, EmployeeList } from "./styled.js";
 import SwiperAgenda from "./swiperAgenda";
 import Button from "components/buttonBack";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { ServiceList } from "domain/services/ServiceList.js";
 
@@ -22,22 +22,17 @@ export default function Agenda(){
 
             <Nagivation>
     
-                <Link to="/">
+                <Link className="link" to="/">
                     <Button color_b={"black"} color_t={"white"} w={200} h={300} value={"Return"}/>
                 </Link>
-                <Link>
-                    <Button color_b={"transparent"} color_t={"black"} w={200} h={300} value={"Other model"}/>
-                </Link>
 
-                <H1>Agenda</H1>
-
-                <div>
+                <section className="section_Title">           
+                    
+                    <H1>Agenda</H1>
+                    
                     <SubTitle>Filter</SubTitle>
-                    <EmployeeList>
-                        <li className="tag "><span className="tag-mariana"/>Mariana</li>
-                        <li className="" ><span className="tag-ivana"/>Ivana</li>
-                    </EmployeeList>
-                </div>
+
+                </section>
             
             </Nagivation>   
 

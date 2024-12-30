@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, H1Login} from "./styled";
+import { Container, H1Login, Logindiv} from "./styled";
 import { Link} from "react-router-dom";
 import { ButtonCustom } from "components/buttonBack/styled";
 
@@ -9,12 +9,15 @@ export default function FormSignIn(){
 
     return(
         <Container>
-            <H1Login>Login</H1Login>
+            <Logindiv>
+                
+                <H1Login>Login</H1Login>
 
-            <Form/>
+                <Form/>
 
-            <Link className="link" to={"/login/register"}> Are you not register? </Link>
-            <Link className="link" to={"/login/forgot"}> forgot your password? </Link>
+                <Link className="link" to={"/login/register"}> Are you not register? </Link>
+                <Link className="link" to={"/login/forgot"}> forgot your password? </Link>
+            </Logindiv>
         </Container> 
     )
 }

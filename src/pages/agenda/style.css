@@ -1,0 +1,10 @@
+.link{
+    position: relative;
+}
+
+.section_Title{
+    display: grid;
+    gap: 2em;
+    align-self: center;
+    justify-self: center;
+}
