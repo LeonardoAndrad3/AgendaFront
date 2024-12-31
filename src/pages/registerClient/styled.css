@@ -1,0 +1,43 @@
+#buttonRegister{
+    background-image: url("assets/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    border: solid 1px rgb(0, 0, 0);
+}
+
+.containerMain{
+    background-image: url("assets/line.png");
+    background-repeat: no-repeat;
+    background-position: 96% 100%;
+
+}
+
+#cep{
+    min-width: 20px;
+    width: 30%
+}
+
+#num{
+   width: auto;
+}
+
+#logadouro{
+    display: grid;
+    grid-template-columns: auto 20%;
+    gap: .4em;
+}
+
+#boxTalking{
+    background-image: url("assets/boxTalking.png");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: 40% 10%;
+    display: flex;
+    padding-top: 1em;
+    justify-content: center;
+    word-wrap: break-word;
+}

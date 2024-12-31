@@ -35,7 +35,7 @@ const Nagivation = styled.section`
     width: 100%;
     border: solid 1px red;
 
-    .link{
+    .link{ 
         display: flex;
         top: 10%;
         left: 2.5%;
@@ -49,7 +49,7 @@ const EmployeeList =  styled.ul`
 
     li{
 
-    }
+    } 
 
     span{
 

@@ -23,6 +23,7 @@ import ForgotPass from 'pages/login/forgotPass';
 import ReceiveCode from 'pages/login/receiveCode';
 import Form from 'pages/login/formSignIn';
 import RegisterService from 'pages/registerService';
+import RegisterClient from 'pages/registerClient';
 
 const router = createBrowserRouter([
     {
@@ -67,7 +68,11 @@ const router = createBrowserRouter([
     {
 
         path:"register",
-        element: <RegisterService/>,
+        element: <RegisterService/>
+    },
+    {
+        path:"signup",
+        element: <RegisterClient/> 
     }
 
 ])
