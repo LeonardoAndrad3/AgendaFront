@@ -22,32 +22,36 @@ class Endereco{
 
 export default function RegisterClient(){
 
-    var responseCep;
+    const [responseCep, setResponseCep] = useState();
+    const [responseData, setResponseData] = useState();
 
-
-    useEffect(()=>{ 
-
-        const rua = document.getElementById("rua");
-
-    })
-
-    const signUp = (e) =>{
+    const signUp = (e) => {
         e.preventDefault();
 
         const dataForm = new FormData(e.currentTarget);
         const num = dataForm.get("numero")
-        // responseCep.numero = num;
+        responseCep.numero = num;
 
-        // dataForm.delete("numero");
-        // dataForm.delete("cep");
+        dataForm.delete("numero");
+        dataForm.delete("conSenha");
+        var jsonSend =  Object.fromEntries(dataForm.entries());
+        jsonSend.endereco = responseCep;
         
-        dataForm.append("endereco", JSON.stringify(responseCep))
+        setResponseData(jsonSend);
 
-        const data = Object.fromEntries(dataForm.entries())
-
-        console.log(dataForm);
-        console.log(data)
+        axios.post("/client", jsonSend,{
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then((e)=>{
+            console.log(e)
+        })
+        .catch((e=>{
+            console.log(e)
+        }))
     }
+
 
     const consultarCep = (e) =>{
         const size = e.target.value.toString().length;
@@ -57,12 +61,24 @@ export default function RegisterClient(){
             axios.get(`https://viacep.com.br/ws/${cep}/json/`)
                     .then(e =>{
                         var response = new Endereco(e.data);
-                        responseCep = e.data;                        
+                        setResponseCep(response)
                     })
                     .catch(e =>{
                         console.log("falha!")
                     })
     }
+
+    useEffect(()=>{
+
+        console.log("entreouuu")
+
+        const rua = document.getElementById("rua");
+
+        if(responseCep != null){
+            rua.value = responseCep.logradouro;
+        }
+
+    },[responseCep])
 
 
     return(
@@ -79,7 +95,7 @@ export default function RegisterClient(){
                 <input  name="CPF" type="text" placeholder="CPF"/>
                 <input  name="email" type="email" placeholder="E-mail"/>
                 <input  name="phone" type="tel" placeholder="Telefone"/>
-                <input  onInput={consultarCep} name="cep" id="cep" type="text" placeholder="Cep"/>
+                <input  onInput={consultarCep} id="cep" type="text" placeholder="Cep"/>
                 <section id="logadouro">
                     <input id="rua" disabled type="text" placeholder="Rua"/>
                     <input  name="numero" id="num" type="text" placeholder="Num"/>
