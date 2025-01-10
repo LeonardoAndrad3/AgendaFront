@@ -1,7 +1,7 @@
 import AllInput from "components/allInput";
 import {Container,ContainerForm, ButtonRegister,H1Register} from "./styled"
 import "./styled.css"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "components/buttonBack";
 import { H1 } from "styles/Global/styled";
 import { json } from "react-router-dom";
@@ -24,6 +24,8 @@ export default function RegisterClient(){
 
     const [responseCep, setResponseCep] = useState();
     const [responseData, setResponseData] = useState();
+    
+    const rua = useRef();
 
     const signUp = (e) => {
         e.preventDefault();
@@ -51,6 +53,18 @@ export default function RegisterClient(){
             console.log(e)
         }))
     }
+    
+
+    const validPassword = (e) =>{
+
+        const passwordVerification = e.target.value;
+        const passwordToConfirm = e.target.form.children.password.value;
+
+        if(passwordVerification){
+
+        }
+        
+    }
 
 
     const consultarCep = (e) =>{
@@ -61,6 +75,8 @@ export default function RegisterClient(){
             axios.get(`https://viacep.com.br/ws/${cep}/json/`)
                     .then(e =>{
                         var response = new Endereco(e.data);
+                        rua.current.value = response.logradouro;
+
                         setResponseCep(response)
                     })
                     .catch(e =>{
@@ -68,17 +84,6 @@ export default function RegisterClient(){
                     })
     }
 
-    useEffect(()=>{
-
-        console.log("entreouuu")
-
-        const rua = document.getElementById("rua");
-
-        if(responseCep != null){
-            rua.value = responseCep.logradouro;
-        }
-
-    },[responseCep])
 
 
     return(
@@ -91,17 +96,17 @@ export default function RegisterClient(){
             </div>
             
             <ContainerForm id="formSignUp" method="POST" onSubmit={signUp}>
-                <input  name="name" type="text" placeholder="Nome"/>
-                <input  name="CPF" type="text" placeholder="CPF"/>
-                <input  name="email" type="email" placeholder="E-mail"/>
-                <input  name="phone" type="tel" placeholder="Telefone"/>
-                <input  onInput={consultarCep} id="cep" type="text" placeholder="Cep"/>
+                <input required name="name" type="text" placeholder="Nome"/>
+                <input required name="CPF" type="text" placeholder="CPF"/>
+                <input required name="email" type="email" placeholder="E-mail"/>
+                <input required name="phone" type="tel" placeholder="Telefone"/>
+                <input required onInput={consultarCep} id="cep" type="text" placeholder="Cep"/>
                 <section id="logadouro">
-                    <input id="rua" disabled type="text" placeholder="Rua"/>
-                    <input  name="numero" id="num" type="text" placeholder="Num"/>
+                    <input  id="rua" ref={rua} disabled type="text" placeholder="Rua"/>
+                    <input required name="numero" id="num" type="text" placeholder="Num"/>
                 </section>
-                <input  id="inputSenha" name="password" type="password" placeholder="Senha"/>
-                <input  id="inputSenhaConfirma" name="conSenha" type="password" placeholder="Confirmar Senha"/>
+                <input required id="inputSenha" name="password" type="password" placeholder="Senha"/>
+                <input onChange={validPassword} required id="inputSenhaConfirma" name="conSenha" type="password" placeholder="Confirmar Senha"/>
                 <ButtonRegister id="buttonRegister" type="submit"/>
             </ContainerForm>
         </Container>
