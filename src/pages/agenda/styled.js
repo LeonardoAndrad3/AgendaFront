@@ -33,7 +33,6 @@ const Nagivation = styled.section`
     display: grid;
     height: 100%;
     width: 100%;
-    border: solid 1px red;
 
     .link{ 
         display: flex;

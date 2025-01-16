@@ -22,9 +22,6 @@ export default function Agenda(){
 
             <Nagivation>
     
-                <Link className="link" to="/">
-                    <Button color_b={"black"} color_t={"white"} w={200} h={300} value={"Return"}/>
-                </Link>
 
                 <section className="section_Title">           
                     

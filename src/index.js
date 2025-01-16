@@ -30,6 +30,19 @@ const router = createBrowserRouter([
         path: "/",
         element: <App/>,
         errorElement: <ErrorPage />,
+        children:[
+            {
+                path:"agenda",
+                element:<Agenda/>,
+                children: [
+                    {
+                        path: "services",
+                        element: <SwiperAgenda />
+                    },
+                ]
+            },
+            
+        ]
     },
     {
         path:"login",
