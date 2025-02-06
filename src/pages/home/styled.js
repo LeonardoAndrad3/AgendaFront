@@ -62,7 +62,7 @@ const DivPainel = styled.section`
         grid-area: 1 / 1 / 2 / 3;
     }
 
-    a{
+    button{
         text-decoration: none;
         border-radius: 10px;
         background-color: #D9D9D9;
@@ -82,10 +82,6 @@ const DivPainel = styled.section`
 
     #dash{
         grid-area: 4/1/5/3;
-    }
-
-    {
-
     }
 `
 

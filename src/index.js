@@ -24,6 +24,7 @@ import ReceiveCode from 'pages/login/receiveCode';
 import Form from 'pages/login/formSignIn';
 import RegisterService from 'pages/registerService';
 import RegisterClient from 'pages/registerClient';
+import PainelGeral from 'pages/home/painelGeral';
 
 const router = createBrowserRouter([
     {
@@ -31,15 +32,17 @@ const router = createBrowserRouter([
         element: <App/>,
         errorElement: <ErrorPage />,
         children:[
+            {   
+                path:"painel",
+                element:<PainelGeral/>,
+            },
             {
-                path:"agenda",
-                element:<Agenda/>,
-                children: [
-                    {
-                        path: "services",
-                        element: <SwiperAgenda />
-                    },
-                ]
+                path: "agenda",
+                element: <Agenda/>,
+            },
+            {   
+                path: "services",
+                element: <SwiperAgenda />,
             },
             
         ]
