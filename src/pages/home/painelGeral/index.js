@@ -11,11 +11,11 @@ export default function PainelGeral(){
 
         <DivPainel className="ContentPainel">
 
-        <ButtonCustom className="link"><Link to="agenda">Agenda<span className="agenda icon"></span></Link></ButtonCustom>
-        <Link to=""><ButtonCustom>Calendário<i className="calendario icon"></i></ButtonCustom></Link>
-        <Link to=""><ButtonCustom>Registro<i className="registro icon"></i></ButtonCustom></Link>
-        <Link to=""><ButtonCustom>Personalizar<i className="personalizar icon"></i></ButtonCustom></Link>
-        <Link to=""><ButtonCustom id="dash">DashBoard<i className="dashboard icon"></i></ButtonCustom></Link>
+        <Link to="../agenda" className="link"><ButtonCustom className="link">Agenda<span className="agenda icon"></span></ButtonCustom></Link>
+        <Link to="" className="link"><ButtonCustom className="link">Calendário<i className="calendario icon"></i></ButtonCustom></Link>
+        <Link to="" className="link"><ButtonCustom className="link">Registro<i className="registro icon"></i></ButtonCustom></Link>
+        <Link to="" className="link"><ButtonCustom className="link">Personalizar<i className="personalizar icon"></i></ButtonCustom></Link>
+        <Link to="" className="link"><ButtonCustom id="dash" className="link">DashBoard<i className="dashboard icon"></i></ButtonCustom></Link>
         </DivPainel>       
     )
 };

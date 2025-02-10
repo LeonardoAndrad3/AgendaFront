@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import {ContainerMain, DivPerfil, DivPainel, IconPerfil} from "./styled"
+import {ContainerMain, DivPerfil, H1, IconPerfil} from "./styled"
 import { ButtonCustom } from "components/buttonBack/styled";
 import "./styled.css";
-import { H1 } from "styles/Global/styled";
 import { Link, Outlet } from "react-router-dom";
+import PainelGeral from "./painelGeral";
 
 
 export default function App(){
@@ -24,14 +24,13 @@ export default function App(){
             </DivPerfil>
             <hr></hr>
 
-            <Link id="linkPainel" to="painel"  className="link" value={"configurar"}> 
+
+            <Link id="linkPainel" to="/painel"  className="link" value={"configurar"}> 
                     <H1>Painel geral</H1>
             </Link>
 
             <Outlet/>
-
-   
-
+            
         </ContainerMain>
     );
 }

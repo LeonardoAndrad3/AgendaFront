@@ -35,6 +35,9 @@ const router = createBrowserRouter([
             {   
                 path:"painel",
                 element:<PainelGeral/>,
+                children:[
+                   
+                ]
             },
             {
                 path: "agenda",
@@ -44,6 +47,7 @@ const router = createBrowserRouter([
                 path: "services",
                 element: <SwiperAgenda />,
             },
+            
             
         ]
     },

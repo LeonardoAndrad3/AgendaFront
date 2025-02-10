@@ -12,6 +12,17 @@ const ContainerMain = styled.main`
     height: 100vh;
 `
 
+const H1 = styled.h1`
+
+    font-size: 25px;
+    color: var(--color-h1-p1);
+    border-radius: 5px;
+    background-color: rgba(221, 221, 221, 0.62);
+    box-shadow: 0px 6px 5px 0px rgba(194, 194, 194, 0.56);
+    padding: .3em;
+`
+
+
 const DivPerfil = styled.section`
     display: grid;
     height: fit-content;
@@ -95,4 +106,4 @@ const IconPerfil = styled.div`
 
 
 
-export {ContainerMain, DivPerfil, DivPainel, IconPerfil}
+export {ContainerMain, DivPerfil, DivPainel, IconPerfil, H1}
