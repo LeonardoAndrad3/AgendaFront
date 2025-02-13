@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Title, SubTitle, Nagivation, EmployeeList } from "./styled.js";
 import SwiperAgenda from "./swiperAgenda";
-import Button from "components/buttonBack";
+import Button from "components/buttomBack/index.js";
 import { Link } from "react-router-dom";
 
 import { ServiceList } from "domain/services/ServiceList.js";
@@ -22,7 +22,6 @@ export default function Agenda(){
 
             <Nagivation>
     
-
                 <section className="section_Title">           
                     
                     <H1>Agenda</H1>

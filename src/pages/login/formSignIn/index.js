@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, H1Login, Logindiv} from "./styled";
 import { Link} from "react-router-dom";
-import { ButtonCustom } from "components/buttonBack/styled";
+import { ButtonCustom } from "components/buttomBack/styled";
 
 import Form from "components/formSignInComp";
 

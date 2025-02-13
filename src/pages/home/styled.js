@@ -13,8 +13,7 @@ const ContainerMain = styled.main`
 `
 
 const H1 = styled.h1`
-
-    font-size: 25px;
+    font-size: 16px;
     color: var(--color-h1-p1);
     border-radius: 5px;
     background-color: rgba(221, 221, 221, 0.62);
@@ -29,8 +28,7 @@ const DivPerfil = styled.section`
     width: 100%;
 
     grid-template-columns: max-content auto min-content;
-
-    padding-top: 2em;
+    padding: .5em .5em 0em .5em;
 
     div{
         grid-area: 1/1/3/3;

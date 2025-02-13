@@ -2,7 +2,7 @@ import AllInput from "components/allInput";
 import {Container,ContainerForm, ButtonRegister,H1Register} from "./styled"
 import "./styled.css"
 import React, { useEffect, useRef, useState } from "react";
-import Button from "components/buttonBack";
+import Button from "components/buttomBack";
 import { H1 } from "styles/Global/styled";
 import { json } from "react-router-dom";
 import axios from "config/axios";

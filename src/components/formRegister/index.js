@@ -1,4 +1,4 @@
-import { ButtonCustom } from "components/buttonBack/styled";
+import { ButtomCustom } from "components/buttomBack/styled";
 import React from "react";
 import { DataList, Form} from "./styled";
 import { registerService } from "services/requestServices/registerService";
@@ -35,7 +35,7 @@ export default function FormRegister(){
 
         const form = new FormData(e.currentTarget)
         form.append("idEmployee", services.id)
-        form.append("idClient", "4")
+        form.append("idClient", "1")
         const data = Object.fromEntries(form.entries())
 
         registerService(data)
@@ -68,7 +68,7 @@ export default function FormRegister(){
             <input type="date" name="date"></input>
             <input type="time" name="start"></input>
 
-            <ButtonCustom type="submit">Register</ButtonCustom>
+            <ButtomCustom type="submit">Register</ButtomCustom>
         </Form>
     )
 }

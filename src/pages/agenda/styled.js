@@ -8,7 +8,7 @@ const Container = styled.div`
     display: flex;
     align-items: start;
     text-align: center;
-    justify-content: end;
+    justify-content: start;
     flex-direction: column;
 
     height: 100vh;
@@ -31,8 +31,12 @@ const SubTitle = styled.h1`
 
 const Nagivation = styled.section`
     display: grid;
-    height: 100%;
-    width: 100%;
+    height: min-content;
+    width: min-content;
+    align-self: center;
+    margin-top: 1em;
+
+    border: solid 1px red;
 
     .link{ 
         display: flex;

@@ -1,5 +1,5 @@
 import { Container, Form} from "./styled"
-import Button from "components/buttonBack"
+import Button from "components/buttomBack"
 import {login} from "auth/login";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
