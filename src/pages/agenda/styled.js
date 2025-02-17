@@ -35,9 +35,7 @@ const Nagivation = styled.section`
     width: min-content;
     align-self: center;
     margin-top: 1em;
-
-    border: solid 1px red;
-
+    
     .link{ 
         display: flex;
         top: 10%;

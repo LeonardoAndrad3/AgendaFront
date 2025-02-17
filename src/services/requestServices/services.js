@@ -11,4 +11,17 @@ async function getServices(n){
         })   
 }
 
+async function getServiceAll(n){
+    return await axios.get(`/services}`)
+        .then((response)=>{
+            console.log(response.data)
+            return response
+        }) 
+        .catch((err) =>{
+            console.log("error")
+        })   
+}
+
+
 export default getServices;
+export {getServiceAll}

@@ -25,6 +25,7 @@ import Form from 'pages/login/formSignIn';
 import RegisterService from 'pages/registerService';
 import RegisterClient from 'pages/registerClient';
 import PainelGeral from 'pages/home/painelGeral';
+import Calendario from 'pages/home/calendario';
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: "agenda",
                 element: <Agenda/>,
+            },
+            {
+                path:"calendario",
+                element: <Calendario/>,
             },
             {   
                 path: "services",

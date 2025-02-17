@@ -3,7 +3,7 @@ import {ContainerMain, DivPerfil, H1, IconPerfil} from "./styled"
 import { ButtomCustom } from "components/buttomBack/styled";
 import "./styled.css";
 import { Link, Outlet } from "react-router-dom";
-import PainelGeral from "./painelGeral";
+
 
 
 export default function App(){
@@ -23,7 +23,6 @@ export default function App(){
         
             </DivPerfil>
             <hr></hr>
-
 
             <Link id="linkPainel" to="/painel"  className="link" value={"configurar"}> 
                     <H1>Painel geral</H1>
