@@ -14,22 +14,21 @@ import { createRoot } from 'react-dom/client';
 import{
     createBrowserRouter,
     RouterProvider,
-    Route,
-    Link
 } from "react-router-dom"
 import Register from 'pages/agenda/registerService';
 import SwiperAgenda from 'pages/agenda/swiperAgenda';
 import ForgotPass from 'pages/login/forgotPass';
 import ReceiveCode from 'pages/login/receiveCode';
-import Form from 'pages/login/formSignIn';
 import RegisterService from 'pages/registerService';
 import RegisterClient from 'pages/registerClient';
 import PainelGeral from 'pages/home/painelGeral';
 import Calendario from 'pages/home/calendario';
+import { Provider } from 'react-redux';
+import store from 'store/store';
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/painel",
         element: <App/>,
         errorElement: <ErrorPage />,
         children:[
@@ -60,10 +59,6 @@ const router = createBrowserRouter([
         path:"login",
         element: <Login />,
         children:[
-            {
-                path:"form",
-                element: <Form />
-            },
             {
                 path: "register",
                 element: <Register />
@@ -105,8 +100,10 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <React.StrictMode>
-        <RouterProvider router={router}/>
-    </React.StrictMode>
+    <Provider store={store}>
+        <React.StrictMode>
+            <RouterProvider router={router}/>
+        </React.StrictMode>
+    </Provider>
 );
 

@@ -1,23 +1,18 @@
+import React from "react";
 import axios from "config/axios";
 
 //Create class for API auth ;
 
-async function login(data){
+export const Login = async (data) => {
 
-        console.log(data)
-
-        await axios.post("/login", data, {
-        headers:{
-            'Content-Type': 'application/json'
-        }
-    })
+        return await axios.post("/login", data, {
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
         .then((response)=>{
-            console.log(response)
-            return new Promise((resolve) =>{
-                setTimeout(()=>{
-                    resolve("test")
-                }, 300)
-            })
+            const token = response.data.token;
+            return token;
         }) 
         .catch((err) =>{
             console.log(err)
@@ -29,5 +24,3 @@ async function login(data){
         })
  
 }
-
-export {login};

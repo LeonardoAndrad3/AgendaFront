@@ -1,10 +1,13 @@
 import { Container, Form} from "./styled"
 import Button from "components/buttomBack"
-import {login} from "auth/login";
-import { useState } from "react";
+import {Login} from "auth/login";
+import { useDispatch } from "react-redux";
+import { setToken } from "store/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function FormSignInComp(){
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -15,14 +18,15 @@ export default function FormSignInComp(){
         
         var dataLogin = JSON.stringify(obj);
 
-        login(dataLogin)
-        .then((data) =>{
-            console.log("login sucess")
-            navigate("/agenda");
+        Login(dataLogin)
+        .then((data) => {
+            dispatch(setToken(data))
+            navigate("/painel")
         })
-        .catch((err) =>{
+        .catch(err =>{
             console.log(err)
-        });
+        })
+        
     }
 
     return(
