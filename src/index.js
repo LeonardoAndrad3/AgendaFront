@@ -28,12 +28,12 @@ import store from 'store/store';
 
 const router = createBrowserRouter([
     {
-        path: "/painel",
+        path: "/",
         element: <App/>,
         errorElement: <ErrorPage />,
         children:[
             {   
-                path:"painel",
+                path:"/painel",
                 element:<PainelGeral/>,
                 children:[
                    
