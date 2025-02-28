@@ -19,15 +19,14 @@ export default function SwiperAgenda(){
 
     const [services, setServices] = useState([]);
 
-
-    //Navigation swiper whem "on" is changer pageble url
     useEffect(()=>{
        dataServices(0)
        .then(({data}) => {
-        setServices(data.content)
+            setServices(data.content)
+            console.log(new ServiceList(services[0]).date)
        })
        .catch((err)=>{
-        console.log(err)
+            console.log(err)
        })
     },[]) 
 
@@ -60,7 +59,6 @@ export default function SwiperAgenda(){
                     }}  
                     spaceBetween={20}
                     slidesPerView={1}
-                    navigation
                     pagination={{clickable: true}}
                 >   
 

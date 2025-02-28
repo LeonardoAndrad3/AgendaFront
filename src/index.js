@@ -25,34 +25,60 @@ import PainelGeral from 'pages/home/painelGeral';
 import Calendario from 'pages/home/calendario';
 import { Provider } from 'react-redux';
 import store from 'store/store';
+import AuthApp from 'store/authApp';
 
 const router = createBrowserRouter([
     {
-        path: "/",
-        element: <App/>,
+        element: <AuthApp/>,
         errorElement: <ErrorPage />,
         children:[
             {   
-                path:"/painel",
-                element:<PainelGeral/>,
+                path: "/",
+                element: <App/>,
+                errorElement: <ErrorPage />,
                 children:[
-                   
+                    {   
+                        path:"/painel",
+                        element:<PainelGeral/>,
+                        children:[
+                           
+                        ]
+                    },
+                    {
+                        path: "agenda",
+                        element: <Agenda/>,
+                    },
+                    {
+                        path:"calendario",
+                        element: <Calendario/>,
+                    },
+                    {   
+                        path: "services",
+                        element: <SwiperAgenda />,
+                    },
+                    
+                    
                 ]
             },
             {
-                path: "agenda",
-                element: <Agenda/>,
+                path:"agenda",
+                element: <Agenda />,
+                children:[
+                    {
+                        path: "services",
+                        element: <SwiperAgenda />
+                    },
+                ]
             },
             {
-                path:"calendario",
-                element: <Calendario/>,
+        
+                path:"register",
+                element: <RegisterService/>
             },
-            {   
-                path: "services",
-                element: <SwiperAgenda />,
-            },
-            
-            
+            {
+                path:"signup",
+                element: <RegisterClient/> 
+            }
         ]
     },
     {
@@ -75,26 +101,6 @@ const router = createBrowserRouter([
             },
         ]
     },
-    {
-        path:"agenda",
-        element: <Agenda />,
-        children:[
-            {
-                path: "services",
-                element: <SwiperAgenda />
-            },
-        ]
-    },
-    {
-
-        path:"register",
-        element: <RegisterService/>
-    },
-    {
-        path:"signup",
-        element: <RegisterClient/> 
-    }
-
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

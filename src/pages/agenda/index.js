@@ -1,13 +1,5 @@
-import { useEffect, useState } from "react";
 import { Container, Title, SubTitle, Nagivation, EmployeeList } from "./styled.js";
 import SwiperAgenda from "./swiperAgenda";
-import Button from "components/buttomBack/index.js";
-import { Link } from "react-router-dom";
-
-import { ServiceList } from "domain/services/ServiceList.js";
-
-
-
 import {H1} from "styles/Global/styled" 
 
 const hideButton = (e) =>{
@@ -19,9 +11,7 @@ export default function Agenda(){
 
     return (
         <Container>
-
             <Nagivation>
-    
                 <section className="section_Title">           
                     
                     <H1>Agenda</H1>
@@ -29,11 +19,8 @@ export default function Agenda(){
                     <SubTitle>Filter</SubTitle>
 
                 </section>
-            
             </Nagivation>   
-
             <SwiperAgenda/>
-
         </Container>
     );
 }

@@ -16,11 +16,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-
-
     color: var(--color-h1-agenda);
-
-
 `
 
 const SubTitle = styled.h1`

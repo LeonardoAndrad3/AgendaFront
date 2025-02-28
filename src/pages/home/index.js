@@ -17,7 +17,6 @@ export default function App(){
                     <p id="name">Mariana</p>
                     <p id="work">Nail designer</p>
                 </div>
- 
     
                 <ButtomCustom id="buttonConfig"></ButtomCustom>
         

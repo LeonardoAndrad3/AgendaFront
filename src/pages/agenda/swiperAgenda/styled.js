@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
-    display: inline-block;
     width: 98%;
     height: 69%;
+    margin: .5em auto 0 auto;
 `
 
 export const SwiperContainer = styled.div`
@@ -19,6 +18,8 @@ export const SwiperContainer = styled.div`
     align-items: center;
     padding: .5em .5em;
     box-sizing: border-box;
+    align-self: center;
+    justify-self: center;
 `
  
 export const ServiceTag = styled.div`

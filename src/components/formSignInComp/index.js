@@ -8,9 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function FormSignInComp(){
 
     const dispatch = useDispatch();
-
     const navigate = useNavigate();
-
     const handleSubmit = (e)=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -24,9 +22,8 @@ export default function FormSignInComp(){
             navigate("/painel")
         })
         .catch(err =>{
-            console.log(err)
+            alert("Caracteres não válidos")
         })
-        
     }
 
     return(

@@ -14,7 +14,7 @@ export class ServiceList{
         this.id = data.id;
         this.employee = data.Employee;
         this.client = data.Client;
-        this.date =  new Date(data.date);
+        this.date = new Date(`${data.date}T12:00:00`);
         this.start = data.start;
         this.end = data.end;
     }
@@ -22,6 +22,7 @@ export class ServiceList{
     getformatDate(){
         let month = this.date.getMonth()+1;
         let day = this.date.getDate();
+        console.log()
         return `${month < 10 ? `0${month}` : month}/${day}`
     }
 
