@@ -12,6 +12,7 @@ export default function FormSignIn(){
 
     if(token)
         return <Navigate to={"/painel"} replace/>
+        
     return(
         <Container>
             <Logindiv>
