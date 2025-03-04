@@ -6,6 +6,7 @@ import { Link, Outlet } from "react-router-dom";
 import Popoup from "components/popup";
 
 
+
 export default function App(){
 
     const btnSettings = useRef();
@@ -15,7 +16,6 @@ export default function App(){
         if(popup)
             popup.current.style.display = "flex";
     }
-
     
     return(
         <ContainerMain>
