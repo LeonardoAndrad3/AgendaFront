@@ -10,7 +10,6 @@ import App from "./pages/home"
 
 import "./styles/themes/default/index.css"
 
-import { createRoot } from 'react-dom/client';
 import{
     createBrowserRouter,
     RouterProvider,
@@ -22,27 +21,31 @@ import ReceiveCode from 'pages/login/receiveCode';
 import RegisterService from 'pages/registerService';
 import RegisterClient from 'pages/registerClient';
 import PainelGeral from 'pages/home/painelGeral';
+import PainelGeralCl from 'pages/homeClient/painelClient';
+import HomeClient from 'pages/homeClient';
 import Calendario from 'pages/home/calendario';
 import { Provider } from 'react-redux';
 import store from 'store/store';
 import AuthApp from 'store/authApp';
+import Unauthorized from "store/unauthorized"
 
 const router = createBrowserRouter([
+    {   
+        element: <Unauthorized/>,
+        path: "authErr"
+    },
     {
-        element: <AuthApp/>,
+        element: <AuthApp allowdRoles={["ROLE_EMPLOYEE"]}/>,
         errorElement: <ErrorPage />,
         children:[
             {   
-                path: "/",
+                path: "/emp",
                 element: <App/>,
                 errorElement: <ErrorPage />,
                 children:[
                     {   
-                        path:"/painel",
+                        path:"painel",
                         element:<PainelGeral/>,
-                        children:[
-                           
-                        ]
                     },
                     {
                         path: "agenda",
@@ -52,43 +55,43 @@ const router = createBrowserRouter([
                         path:"calendario",
                         element: <Calendario/>,
                     },
-                    {   
-                        path: "services",
-                        element: <SwiperAgenda />,
-                    },
-                    
-                    
                 ]
             },
-            {
-                path:"agenda",
-                element: <Agenda />,
-                children:[
-                    {
-                        path: "services",
-                        element: <SwiperAgenda />
-                    },
-                ]
-            },
-            {
-        
-                path:"register",
-                element: <RegisterService/>
-            },
-            {
-                path:"signup",
-                element: <RegisterClient/> 
-            }
         ]
     },
     {
-        path:"login",
+        element: <AuthApp allowdRoles={["ROLE_CLIENT"]}/>,
+        errorElement: <ErrorPage />,
+        children:[
+            {   
+                path: "/client",
+                element: <HomeClient/>,
+                errorElement: <ErrorPage />,
+                children:[
+                    {   
+                        path:"painel",
+                        element:<PainelGeralCl/>,
+                    }, 
+                    {
+                        path:"agenda",
+                        element: <Agenda />,
+                    },
+                    {
+                        path:"calendario",
+                        element: <Calendario/>,
+                    },
+                    {
+                        path:"addService",
+                        element: <RegisterService/>
+                    }
+                ]
+            },
+        ]
+    },
+    {
+        path:"/",
         element: <Login />,
         children:[
-            {
-                path: "register",
-                element: <Register />
-            },
             {
                 path: "forgot",
                 element: <ForgotPass/>,
@@ -101,6 +104,10 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "register",
+        element: <RegisterClient />
+    }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

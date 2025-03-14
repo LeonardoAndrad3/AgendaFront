@@ -4,7 +4,6 @@ import axios from "config/axios";
 //Create class for API auth ;
 
 export const Login = async (data) => {
-
         return await axios.post("/login", data, {
             headers:{
                 'Content-Type': 'application/json'
@@ -22,5 +21,4 @@ export const Login = async (data) => {
                 }, 300)
             })
         })
- 
 }

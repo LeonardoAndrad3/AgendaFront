@@ -5,7 +5,7 @@ import "./styled.css";
 import { Link, Outlet } from "react-router-dom";
 import Popoup from "components/popup";
 
-export default function HomeEmployee(){
+export default function HomeClient(){
 
     const btnSettings = useRef();
     const popup = useRef();
@@ -23,7 +23,7 @@ export default function HomeEmployee(){
             <DivPerfil>
                 <div>
                     <IconPerfil/>
-                    <p id="name">Mariana</p>
+                    <p id="name">Leonardo</p>
                     <p id="work">Nail designer</p>
                 </div>
     

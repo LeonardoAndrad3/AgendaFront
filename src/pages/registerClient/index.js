@@ -111,7 +111,4 @@ export default function RegisterClient(){
             </ContainerForm>
         </Container>
     )
-
-
-
 }

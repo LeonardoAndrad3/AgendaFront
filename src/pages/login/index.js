@@ -1,8 +1,6 @@
 import React from "react";
 import { Container, H1Login, Logindiv} from "./styled";
 import { Link, Navigate} from "react-router-dom";
-import { ButtonCustom } from "components/buttomBack/styled";
-
 import Form from "components/formSignInComp";
 import { useSelector } from "react-redux";
 
@@ -11,8 +9,8 @@ export default function FormSignIn(){
     const token = useSelector(state => state.auth.token) || localStorage.getItem('token')
 
     if(token)
-        return <Navigate to={"/painel"} replace/>
-        
+        return <Navigate to={"/"} replace/>
+
     return(
         <Container>
             <Logindiv>

@@ -1,0 +1,46 @@
+hr{ 
+    width: 150px;
+    border: solid 2px rgb(36, 36, 36);
+    border-radius: 5px;
+    grid-area: 3/1/3/4; 
+    grid-gap: 1em;
+    margin: 1em 0 1em 0; 
+}
+
+#buttonConfig{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("assets/icon/engrenagem.png");
+    width: 20px;
+}
+
+.icon{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 45px;
+    height: 45px;
+}
+
+.agenda{
+    background-image: url("assets/icon/agenda.svg");
+}
+
+.calendario{
+    background-image: url("assets/icon/calendario.svg");
+}
+
+.registro{
+    background-image: url("assets/icon/registro.svg");
+}
+
+.personalizar{
+    background-image: url("assets/icon/personalizar.svg");
+}
+
+.dashboard{
+    background-image: url("assets/icon/dash.svg");
+}
+

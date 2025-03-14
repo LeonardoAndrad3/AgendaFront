@@ -5,19 +5,20 @@ const authSlice = createSlice({
     name: 'auth',
     initialState:{
         token: localStorage.getItem('token') || null,
-        rule: localStorage.getItem('rule') || null
+        role: localStorage.getItem('role') || null
     },
     reducers:{
         setToken: (state, action) =>{
             state.token = action.payload;
+            state.role = jwtDecode(action.payload).role;
+
             localStorage.setItem('token', action.payload)
-            localStorage.setItem('rule', jwtDecode(action.payload).rule)
-            console.log(jwtDecode(action.payload))
         },
         clearToken: (state) =>{
             state.token = null;
+            state.role = null;
             localStorage.removeItem('token');
-            localStorage.removeItem('rule');
+            localStorage.removeItem('role');
         },
     }
 });
