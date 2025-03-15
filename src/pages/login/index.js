@@ -1,18 +1,13 @@
 import React from "react";
 import { Container, H1Login, Logindiv} from "./styled";
-import { Link, Navigate} from "react-router-dom";
+import { Link} from "react-router-dom";
 import Form from "components/formSignInComp";
-import { useSelector } from "react-redux";
+import AuthVerification from "store/authVerification";
 
 export default function FormSignIn(){
-
-    const token = useSelector(state => state.auth.token) || localStorage.getItem('token')
-
-    if(token)
-        return <Navigate to={"/"} replace/>
-
     return(
         <Container>
+            <AuthVerification/>
             <Logindiv>
                 
                 <H1Login>Login</H1Login>

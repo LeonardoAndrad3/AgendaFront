@@ -14,8 +14,6 @@ import{
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom"
-import Register from 'pages/agenda/registerService';
-import SwiperAgenda from 'pages/agenda/swiperAgenda';
 import ForgotPass from 'pages/login/forgotPass';
 import ReceiveCode from 'pages/login/receiveCode';
 import RegisterService from 'pages/registerService';
