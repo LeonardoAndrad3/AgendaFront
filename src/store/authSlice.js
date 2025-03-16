@@ -1,5 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit"
 import { jwtDecode } from "jwt-decode";
+import {byEmail} from "services/requestServices/employeeByEmail"
+
+
+console.log(byEmail("biriba@gmail.com"))
+
 
 const authSlice = createSlice({
     name: 'auth',
@@ -11,7 +16,6 @@ const authSlice = createSlice({
         setToken: (state, action) =>{
             state.token = action.payload;
             state.role = jwtDecode(action.payload).role;
-
             localStorage.setItem('token', action.payload)
         },
         clearToken: (state) =>{

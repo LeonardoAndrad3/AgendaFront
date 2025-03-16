@@ -4,11 +4,20 @@ import { ButtomCustom } from "components/buttomBack/styled";
 import "./styled.css";
 import { Link, Outlet } from "react-router-dom";
 import Popoup from "components/popup";
+import { useSelector } from "react-redux";
+import { jwtDecode } from "jwt-decode";
 
-export default function HomeEmployee(){
+export default function HomeEmployee(props){
 
     const btnSettings = useRef();
     const popup = useRef();
+    const token = useSelector((state) => state.auth.token);
+
+    const data = () =>{
+        return jwtDecode(token)
+    } 
+
+    console.log(data())
 
     const clickSettings = () =>{
         if(popup)
@@ -16,6 +25,7 @@ export default function HomeEmployee(){
     }
     
     return(
+        
         <ContainerMain>
 
             <Popoup ref={popup}/>
@@ -23,8 +33,8 @@ export default function HomeEmployee(){
             <DivPerfil>
                 <div>
                     <IconPerfil/>
-                    <p id="name">Mariana</p>
-                    <p id="work">Nail designer</p>
+                    <p id="name">{props.name}</p>
+                    <p id="work">{props.work}</p>
                 </div>
     
                 <ButtomCustom id="buttonConfig" ref={btnSettings} onClick={clickSettings}></ButtomCustom>
