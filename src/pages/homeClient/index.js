@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {ContainerMain, DivPerfil, H1, IconPerfil} from "./styled"
 import { ButtomCustom } from "components/buttomBack/styled";
 import "./styled.css";
@@ -7,9 +7,17 @@ import Popoup from "components/popup";
 
 export default function HomeClient(){
 
+    
     const btnSettings = useRef();
     const popup = useRef();
+    const [user, setUser] = useState();
 
+
+    useEffect(()=>{
+        console.log(JSON.parse(localStorage.getItem("infoUser")))
+        setUser(JSON.parse(localStorage.getItem("infoUser")));
+    },[])
+    
     const clickSettings = () =>{
         if(popup)
             popup.current.style.display = "flex";
@@ -23,8 +31,8 @@ export default function HomeClient(){
             <DivPerfil>
                 <div>
                     <IconPerfil/>
-                    <p id="name">Leonardo</p>
-                    <p id="work">Nail designer</p>
+                    <p id="name">{user?.name}</p>
+                    <p id="work">{}</p>
                 </div>
     
                 <ButtomCustom id="buttonConfig" ref={btnSettings} onClick={clickSettings}></ButtomCustom>

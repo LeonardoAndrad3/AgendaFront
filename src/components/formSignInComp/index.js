@@ -3,30 +3,44 @@ import Button from "components/buttomBack"
 import {Login} from "auth/login";
 import { useDispatch } from "react-redux";
 import { setToken } from "store/authSlice";
-import { useNavigate } from "react-router-dom";
 import byEmail from "services/requestServices/employeeByEmail";
+import clientByEmail from "services/requestServices/client/clientByEmail";
 import { saveLocalStorage } from "store/saveLocalStarage";
+import { jwtDecode } from "jwt-decode";
 
 export default function FormSignInComp(){
-
     const dispatch = useDispatch();
-    const handleSubmit = (e)=>{
+
+     const handleSubmit = (e)=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        const obj = Object.fromEntries(form.entries())
-        
+        const obj = Object.fromEntries(form.entries())        
         var dataLogin = JSON.stringify(obj);
 
         try{
             Login(dataLogin)
             .then((data) => {
+                const role = jwtDecode(data).role;
                 const email = JSON.parse(dataLogin).email
-                byEmail(email).then(({data}) =>{
-                    const infoData = JSON.stringify(data)
-                    saveLocalStorage("infoUser", infoData)
-                })
-                dispatch(setToken(data))
+                let user;
+
+
+                if(role.includes("EMPLOYEE"))
+                    byEmail(email).then(({data}) =>{
+                        user = JSON.stringify(data)      
+                        saveLocalStorage("infoUser", user)
+                    })
+                else if(role.includes("CLIENT"))
+                    clientByEmail(email).then(({data}) =>{
+                        user = JSON.stringify(data);     
+                        saveLocalStorage("infoUser", user)          
+                    })
+                
+                setTimeout(()=>{
+                    dispatch(setToken(data))
+                }, 300)
             })
+            
             .catch(err =>{
                 alert("Caracteres não válidos")
             })

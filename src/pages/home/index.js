@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {ContainerMain, DivPerfil, H1, IconPerfil} from "./styled"
 import { ButtomCustom } from "components/buttomBack/styled";
 import "./styled.css";
@@ -11,12 +11,12 @@ export default function HomeEmployee(){
 
     const btnSettings = useRef();
     const popup = useRef();
-    const token = useSelector((state) => state.auth.token);
-    const user = JSON.parse(localStorage.getItem("infoUser"))
+    const [user, setUser] =  useState();
 
-    const data = () =>{
-        return jwtDecode(token)
-    } 
+     useEffect(()=>{
+         setUser(JSON.parse(localStorage.getItem("infoUser")));
+     },[])
+     
     const clickSettings = () =>{
         if(popup)
             popup.current.style.display = "flex";
@@ -31,8 +31,8 @@ export default function HomeEmployee(){
             <DivPerfil>
                 <div>
                     <IconPerfil/>
-                    <p id="name">{user.name}</p>
-                    <p id="work">{user.work}</p>
+                    <p id="name">{user?.name}</p>
+                    <p id="work">{user?.work}</p>
                 </div>
     
                 <ButtomCustom id="buttonConfig" ref={btnSettings} onClick={clickSettings}></ButtomCustom>

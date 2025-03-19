@@ -58,7 +58,7 @@ const DivPainel = styled.section`
 
     display: grid;
 
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     grid-template-rows: min-content repeat(auto-fit, minmax(300px, 1fr));
 
     justify-items: center;
