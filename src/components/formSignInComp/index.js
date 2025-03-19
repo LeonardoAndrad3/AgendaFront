@@ -4,6 +4,8 @@ import {Login} from "auth/login";
 import { useDispatch } from "react-redux";
 import { setToken } from "store/authSlice";
 import { useNavigate } from "react-router-dom";
+import byEmail from "services/requestServices/employeeByEmail";
+import { saveLocalStorage } from "store/saveLocalStarage";
 
 export default function FormSignInComp(){
 
@@ -15,13 +17,23 @@ export default function FormSignInComp(){
         
         var dataLogin = JSON.stringify(obj);
 
-        Login(dataLogin)
-        .then((data) => {
-            dispatch(setToken(data))
-        })
-        .catch(err =>{
-            alert("Caracteres não válidos")
-        })
+        try{
+            Login(dataLogin)
+            .then((data) => {
+                const email = JSON.parse(dataLogin).email
+                byEmail(email).then(({data}) =>{
+                    const infoData = JSON.stringify(data)
+                    saveLocalStorage("infoUser", infoData)
+                })
+                dispatch(setToken(data))
+            })
+            .catch(err =>{
+                alert("Caracteres não válidos")
+            })
+        }
+        catch(err){
+            console.log("Erro ou falha, contate o profissional.")
+        }
     }
 
     return(

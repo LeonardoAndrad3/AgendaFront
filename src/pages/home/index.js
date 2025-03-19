@@ -7,18 +7,16 @@ import Popoup from "components/popup";
 import { useSelector } from "react-redux";
 import { jwtDecode } from "jwt-decode";
 
-export default function HomeEmployee(props){
+export default function HomeEmployee(){
 
     const btnSettings = useRef();
     const popup = useRef();
     const token = useSelector((state) => state.auth.token);
+    const user = JSON.parse(localStorage.getItem("infoUser"))
 
     const data = () =>{
         return jwtDecode(token)
     } 
-
-    console.log(data())
-
     const clickSettings = () =>{
         if(popup)
             popup.current.style.display = "flex";
@@ -33,8 +31,8 @@ export default function HomeEmployee(props){
             <DivPerfil>
                 <div>
                     <IconPerfil/>
-                    <p id="name">{props.name}</p>
-                    <p id="work">{props.work}</p>
+                    <p id="name">{user.name}</p>
+                    <p id="work">{user.work}</p>
                 </div>
     
                 <ButtomCustom id="buttonConfig" ref={btnSettings} onClick={clickSettings}></ButtomCustom>

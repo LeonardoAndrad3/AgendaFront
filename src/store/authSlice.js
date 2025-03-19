@@ -1,10 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit"
 import { jwtDecode } from "jwt-decode";
-import {byEmail} from "services/requestServices/employeeByEmail"
-
-
-console.log(byEmail("biriba@gmail.com"))
-
 
 const authSlice = createSlice({
     name: 'auth',
@@ -23,6 +18,7 @@ const authSlice = createSlice({
             state.role = null;
             localStorage.removeItem('token');
             localStorage.removeItem('role');
+            localStorage.removeItem('infoUser')
         },
     }
 });

@@ -6,7 +6,7 @@ const AuthApp = ({ allowdRoles }) =>{
     const token = useSelector(state => state.auth.token) || localStorage.getItem('token');
     const location = useLocation();
     const role = () => jwtDecode(token).role
-
+    
     if(!token)
         return <Navigate to={"/"} state={{from: location}} replace />
 

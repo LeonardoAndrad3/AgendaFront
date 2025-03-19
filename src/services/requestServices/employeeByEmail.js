@@ -1,16 +1,15 @@
 import axios from "config/axios";
 
-
 //Conhecimento: o encodeURIComponents é para não dar erros com caracteres especiais.
-const byEmail = async(email) =>{
+async function byEmail(email){
     return await axios.get(`/employees/byEmail?email=${encodeURIComponent(email)}`)
-    .then(data =>{
-        console.log(data)
+    .then((data) =>{
+        return data
     })
-    .catch(err =>{
-        console.log(err)
+    .catch((err) =>{
+        return err
     })
 
 }
 
-export {byEmail};
+export default byEmail
