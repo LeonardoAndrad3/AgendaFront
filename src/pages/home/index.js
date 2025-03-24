@@ -4,8 +4,6 @@ import { ButtomCustom } from "components/buttomBack/styled";
 import "./styled.css";
 import { Link, Outlet } from "react-router-dom";
 import Popoup from "components/popup";
-import { useSelector } from "react-redux";
-import { jwtDecode } from "jwt-decode";
 
 export default function HomeEmployee(){
 

@@ -7,15 +7,12 @@ import Popoup from "components/popup";
 
 export default function HomeClient(){
 
-    
     const btnSettings = useRef();
     const popup = useRef();
     const [user, setUser] = useState();
 
-
     useEffect(()=>{
-        console.log(JSON.parse(localStorage.getItem("infoUser")))
-        setUser(JSON.parse(localStorage.getItem("infoUser")));
+        setUser(JSON.parse(localStorage.getItem("infoUser")) | null);
     },[])
     
     const clickSettings = () =>{
@@ -32,11 +29,10 @@ export default function HomeClient(){
                 <div>
                     <IconPerfil/>
                     <p id="name">{user?.name}</p>
-                    <p id="work">{}</p>
                 </div>
-    
+
                 <ButtomCustom id="buttonConfig" ref={btnSettings} onClick={clickSettings}></ButtomCustom>
-        
+
             </DivPerfil>
             <hr></hr>
 
@@ -45,7 +41,7 @@ export default function HomeClient(){
             </Link>
 
             <Outlet/>
-            
+
         </ContainerMain>
     );
 }

@@ -24,21 +24,18 @@ export default function FormSignInComp(){
                 const email = JSON.parse(dataLogin).email
                 let user;
 
-
                 if(role.includes("EMPLOYEE"))
-                    byEmail(email).then(({data}) =>{
+                    byEmail(email).then(async ({data}) =>{
                         user = JSON.stringify(data)      
-                        saveLocalStorage("infoUser", user)
+                        await saveLocalStorage("infoUser", user)
                     })
                 else if(role.includes("CLIENT"))
-                    clientByEmail(email).then(({data}) =>{
+                    clientByEmail(email).then(async ({data}) =>{
                         user = JSON.stringify(data);     
-                        saveLocalStorage("infoUser", user)          
+                        await saveLocalStorage("infoUser", user)
                     })
-                
-                setTimeout(()=>{
-                    dispatch(setToken(data))
-                }, 300)
+                    
+                dispatch(setToken(data))
             })
             
             .catch(err =>{
