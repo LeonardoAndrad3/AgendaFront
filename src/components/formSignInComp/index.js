@@ -19,10 +19,12 @@ export default function FormSignInComp(){
 
         try{
             Login(dataLogin)
-            .then((data) => {
-                const role = jwtDecode(data).role;
+            .then((token) => {
+                const role = jwtDecode(token).role;
                 const email = JSON.parse(dataLogin).email
                 let user;
+
+                dispatch(setToken(token))
 
                 if(role.includes("EMPLOYEE"))
                     byEmail(email).then(async ({data}) =>{
@@ -31,11 +33,10 @@ export default function FormSignInComp(){
                     })
                 else if(role.includes("CLIENT"))
                     clientByEmail(email).then(async ({data}) =>{
+                        console.log(data)
                         user = JSON.stringify(data);     
                         await saveLocalStorage("infoUser", user)
                     })
-                    
-                dispatch(setToken(data))
             })
             
             .catch(err =>{

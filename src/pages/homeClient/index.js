@@ -12,7 +12,8 @@ export default function HomeClient(){
     const [user, setUser] = useState();
 
     useEffect(()=>{
-        setUser(JSON.parse(localStorage.getItem("infoUser")) | null);
+
+        setUser(JSON.parse(localStorage.getItem("infoUser")));
     },[])
     
     const clickSettings = () =>{
