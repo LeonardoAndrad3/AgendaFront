@@ -2,18 +2,20 @@
 import axios from "axios";
 
 const request = axios.create({
-    baseURL:"http://localhost:8080"
+    baseURL:"http://localhost:8080",
+    withCredentials: true
 })
-request.interceptors.request.use(config =>{
-    const token = localStorage.getItem("token");
-    console.log(token)
-    if(token)
-        config.headers.authorization = `Bearer ${token}`;
-    console.log(config)
-    return config
 
-}, (err) =>{
-    return Promise.reject(err);
-})
+// request.interceptors.request.use(config =>{
+//     const token = localStorage.getItem("token");
+//     console.log(token)
+//     if(token)
+//         config.headers.authorization = `Bearer ${token}`;
+//     console.log(config)
+//     return config
+
+// }, (err) =>{
+//     return Promise.reject(err);
+// })
 
 export default request;

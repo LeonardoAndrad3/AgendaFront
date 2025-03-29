@@ -1,7 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 import {useSelector} from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { getLocalStorage } from "./saveLocalStarage";
 import { useState, useEffect } from "react";
 
 const AuthApp = ({ allowdRoles }) =>{
@@ -20,7 +19,6 @@ const AuthApp = ({ allowdRoles }) =>{
         return <Navigate to={"/"} state={{from: location}} replace />
 
     try{
-
         if(load === null)
             return <p> carregando...</p>
 

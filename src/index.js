@@ -81,6 +81,10 @@ const router = createBrowserRouter([
                     {
                         path:"addService",
                         element: <RegisterService/>
+                    },
+                    {
+                        path: "register",
+                        element: <RegisterClient />
                     }
                 ]
             },
@@ -102,10 +106,7 @@ const router = createBrowserRouter([
             },
         ]
     },
-    {
-        path: "register",
-        element: <RegisterClient />
-    }
+
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

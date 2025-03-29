@@ -12,6 +12,7 @@ const AuthVerification = () =>{
     useEffect(() => {
         if(token){
             const subsToken = jwtDecode(token)
+            console.log(subsToken)
             const role = subsToken.role
             
             if(role.includes("EMPLOYEE"))

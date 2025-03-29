@@ -2,15 +2,14 @@ import request from "config/axios";
 
 //Create class for API auth ;
 
-export const Login = async (data) => {
-        return await request.post("/auth/login", data, {
+export const Logout = async () => {
+        return await request.post("/auth/logout", {}, {
             headers:{
                 'Content-Type': 'application/json'
             }
         })
         .then((response)=>{
-            const token = response.data;
-            return token;
+            console.log(response);
         }) 
         .catch((err) =>{
             console.log(err)
