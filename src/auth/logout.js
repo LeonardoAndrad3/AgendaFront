@@ -1,5 +1,6 @@
 import request from "config/axios";
 
+
 //Create class for API auth ;
 
 export const Logout = async () => {
@@ -9,7 +10,7 @@ export const Logout = async () => {
             }
         })
         .then((response)=>{
-            console.log(response);
+            return response
         }) 
         .catch((err) =>{
             console.log(err)

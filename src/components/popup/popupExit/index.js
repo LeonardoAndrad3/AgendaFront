@@ -1,11 +1,10 @@
 import { ButtomCustom } from "components/buttomBack/styled"
 import "./styled.css"
 import { PopupContent, PopupComponent} from "./styled"
-import { clearToken } from "store/authSlice"
+import { clearToken, countNum} from "store/authSlice"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { forwardRef, useReducer, useRef } from "react"
-import { Logout } from "auth/logout"
 
 const PopoupExit = forwardRef((props, ref) =>{
 
@@ -14,7 +13,6 @@ const PopoupExit = forwardRef((props, ref) =>{
     const popupContet = useRef();
 
     const exit = () =>{ 
-        Logout();
         dispatch(clearToken(token))
     }
 

@@ -1,11 +1,6 @@
 //axios
 import axios from "axios";
 
-const request = axios.create({
-    baseURL:"http://localhost:8080",
-    withCredentials: true
-})
-
 // request.interceptors.request.use(config =>{
 //     const token = localStorage.getItem("token");
 //     console.log(token)
@@ -18,4 +13,7 @@ const request = axios.create({
 //     return Promise.reject(err);
 // })
 
-export default request;
+export default axios.create({
+    baseURL:"http://localhost:8080",
+    withCredentials: true
+});

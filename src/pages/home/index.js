@@ -4,6 +4,7 @@ import { ButtomCustom } from "components/buttomBack/styled";
 import "./styled.css";
 import { Link, Outlet } from "react-router-dom";
 import Popoup from "components/popup";
+import Cookies from "js-cookie";
 
 export default function HomeEmployee(){
 
@@ -12,7 +13,7 @@ export default function HomeEmployee(){
     const [user, setUser] =  useState();
 
      useEffect(()=>{
-         setUser(JSON.parse(localStorage.getItem("infoUser")));
+         setUser(JSON.parse(Cookies.get("infoUser")));
      },[])
      
     const clickSettings = () =>{

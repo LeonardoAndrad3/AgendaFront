@@ -12,23 +12,29 @@ import 'swiper/css/scrollbar';
 import "swiper/css/grid";
 import * as ST from "./styled";
 
-import dataServices from "services/requestServices/services"
+import {getServiceAll} from "services/requestServices/services"
 import { ServiceList } from "domain/services/ServiceList";
 
 export default function SwiperAgenda(){
 
     const [services, setServices] = useState([]);
 
-    useEffect(()=>{
-       dataServices(0)
-       .then(({data}) => {
-            setServices(data.content)
-            console.log(new ServiceList(services[0]).date)
-       })
-       .catch((err)=>{
+
+    const getServices = async () =>{
+        try{
+            const response = await getServiceAll().then(({data}) => {return data.content})
+            setServices(response);
+        }
+        catch(err){
             console.log(err)
-       })
-    },[]) 
+        }
+    }
+
+    useEffect(()=>{
+        getServices();
+    }, []);
+
+    console.log(services)
 
     function ContentServices({data=new ServiceList()}){
         if(data.id !== undefined)

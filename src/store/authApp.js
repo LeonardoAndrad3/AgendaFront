@@ -1,19 +1,30 @@
 import { jwtDecode } from "jwt-decode";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import validSession from "services/requestServices/validSession";
+import { clearToken } from "./authSlice";
 
 const AuthApp = ({ allowdRoles }) =>{
-    const token = useSelector(state => state.auth.token) || localStorage.getItem('token');
+    const token = useSelector(state => state.auth.token) || Cookies.get('token');
+    const role = useSelector(state => state.auth.role) || Cookies.get('role');
     const location = useLocation();
-    const role = () => jwtDecode(token).role
     const [load, setLoad] = useState(null);
+    const dispatch = useDispatch();
+
 
     useEffect(()=>{
-        setTimeout(()=>{
-            setLoad(allowdRoles.includes(role()))
-        }, "500")
-    }, [])
+        setTimeout(async()=>{
+            await validSession().then((data) =>{
+                return data
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+            setLoad(allowdRoles.includes(role))
+        },"1000")
+    },[allowdRoles, role])
 
     if(!token)
         return <Navigate to={"/"} state={{from: location}} replace />

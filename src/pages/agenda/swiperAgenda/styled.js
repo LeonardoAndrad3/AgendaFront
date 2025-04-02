@@ -4,6 +4,7 @@ export const Container = styled.div`
     width: 98%;
     height: 69%;
     margin: .5em auto 0 auto;
+    z-index: -1;
 `
 
 export const SwiperContainer = styled.div`

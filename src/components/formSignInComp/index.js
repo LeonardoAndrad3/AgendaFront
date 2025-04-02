@@ -7,6 +7,7 @@ import byEmail from "services/requestServices/employeeByEmail";
 import clientByEmail from "services/requestServices/client/clientByEmail";
 import { saveLocalStorage } from "store/saveLocalStarage";
 import { jwtDecode } from "jwt-decode";
+import Cookies from "js-cookie";
 
 export default function FormSignInComp(){
     const dispatch = useDispatch();
@@ -24,19 +25,19 @@ export default function FormSignInComp(){
                 const email = JSON.parse(dataLogin).email
                 let user;
 
-                dispatch(setToken(token))
-
                 if(role.includes("EMPLOYEE"))
-                    byEmail(email).then(async ({data}) =>{
+                    byEmail(email).then(({data}) =>{
                         user = JSON.stringify(data)      
-                        await saveLocalStorage("infoUser", user)
+                        Cookies.set("infoUser", user)
                     })
                 else if(role.includes("CLIENT"))
-                    clientByEmail(email).then(async ({data}) =>{
+                    clientByEmail(email).then(({data}) =>{
                         console.log(data)
                         user = JSON.stringify(data);     
-                        await saveLocalStorage("infoUser", user)
+                        Cookies.set("infoUser", user)
                     })
+                
+                    dispatch(setToken(token))
             })
             
             .catch(err =>{
