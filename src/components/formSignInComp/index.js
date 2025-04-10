@@ -32,7 +32,6 @@ export default function FormSignInComp(){
                     })
                 else if(role.includes("CLIENT"))
                     clientByEmail(email).then(({data}) =>{
-                        console.log(data)
                         user = JSON.stringify(data);     
                         Cookies.set("infoUser", user)
                     })
